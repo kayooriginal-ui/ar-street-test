@@ -6,7 +6,7 @@
     name="viewport"
     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
   />
-  <title>AR Street Art Test 01</title>
+  <title>AR Street Art Test 02</title>
 
   <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
@@ -49,7 +49,7 @@
       transform: translateX(-50%);
       z-index: 20;
       color: white;
-      background: rgba(0, 0, 0, 0.45);
+      background: rgba(0, 0, 0, 0.42);
       padding: 10px 14px;
       border-radius: 12px;
       font-size: 14px;
@@ -76,45 +76,89 @@
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
     <a-entity mindar-image-target="targetIndex: 0">
+
+      <!-- Bubbelcluster bij de pijp / waterzone -->
       <a-sphere
-        position="-0.2 0.1 0"
-        radius="0.05"
-        color="#7FDBFF"
-        opacity="0.65"
-        animation="property: position; to: -0.2 0.7 0; dir: alternate; dur: 2200; loop: true; easing: easeInOutSine">
+        position="-0.34 -0.24 0.02"
+        radius="0.030"
+        color="#dff9ff"
+        opacity="0.45"
+        animation__rise="property: position; to: -0.28 0.22 0.02; dur: 2500; loop: true; easing: easeInOutSine"
+        animation__pulse="property: scale; dir: alternate; dur: 1100; loop: true; to: 1.08 1.08 1.08">
       </a-sphere>
 
       <a-sphere
-        position="-0.05 0.0 0"
-        radius="0.035"
-        color="#AEEBFF"
-        opacity="0.7"
-        animation="property: position; to: -0.02 0.55 0; dir: alternate; dur: 1800; loop: true; easing: easeInOutSine">
+        position="-0.28 -0.20 0.02"
+        radius="0.020"
+        color="#bfefff"
+        opacity="0.40"
+        animation__rise="property: position; to: -0.22 0.18 0.02; dur: 1800; loop: true; easing: easeInOutSine"
+        animation__pulse="property: scale; dir: alternate; dur: 900; loop: true; to: 1.15 1.15 1.15">
       </a-sphere>
 
       <a-sphere
-        position="0.08 0.08 0"
-        radius="0.045"
-        color="#BFEFFF"
-        opacity="0.6"
-        animation="property: position; to: 0.12 0.78 0; dir: alternate; dur: 2500; loop: true; easing: easeInOutSine">
+        position="-0.22 -0.18 0.02"
+        radius="0.040"
+        color="#9fe7ff"
+        opacity="0.38"
+        animation__rise="property: position; to: -0.15 0.28 0.02; dur: 3000; loop: true; easing: easeInOutSine"
+        animation__pulse="property: scale; dir: alternate; dur: 1400; loop: true; to: 1.10 1.10 1.10">
       </a-sphere>
 
       <a-sphere
-        position="0.18 -0.02 0"
-        radius="0.03"
-        color="#D9F7FF"
-        opacity="0.75"
-        animation="property: position; to: 0.15 0.48 0; dir: alternate; dur: 1600; loop: true; easing: easeInOutSine">
+        position="-0.16 -0.12 0.02"
+        radius="0.024"
+        color="#d8f7ff"
+        opacity="0.48"
+        animation__rise="property: position; to: -0.10 0.20 0.02; dur: 2100; loop: true; easing: easeInOutSine"
+        animation__pulse="property: scale; dir: alternate; dur: 1000; loop: true; to: 1.12 1.12 1.12">
       </a-sphere>
 
       <a-sphere
-        position="0 0.18 0"
-        radius="0.025"
-        color="#E8FCFF"
+        position="-0.30 -0.06 0.02"
+        radius="0.016"
+        color="#eefcff"
+        opacity="0.52"
+        animation__rise="property: position; to: -0.26 0.12 0.02; dur: 1600; loop: true; easing: easeInOutSine"
+        animation__pulse="property: scale; dir: alternate; dur: 800; loop: true; to: 1.18 1.18 1.18">
+      </a-sphere>
+
+      <a-sphere
+        position="-0.12 -0.24 0.02"
+        radius="0.028"
+        color="#c9f2ff"
+        opacity="0.36"
+        animation__rise="property: position; to: -0.05 0.16 0.02; dur: 2400; loop: true; easing: easeInOutSine"
+        animation__pulse="property: scale; dir: alternate; dur: 1200; loop: true; to: 1.10 1.10 1.10">
+      </a-sphere>
+
+      <a-sphere
+        position="-0.18 -0.30 0.02"
+        radius="0.014"
+        color="#f4feff"
         opacity="0.55"
-        animation="property: position; to: 0.03 0.88 0; dir: alternate; dur: 2100; loop: true; easing: easeInOutSine">
+        animation__rise="property: position; to: -0.14 0.10 0.02; dur: 1700; loop: true; easing: easeInOutSine"
+        animation__pulse="property: scale; dir: alternate; dur: 700; loop: true; to: 1.20 1.20 1.20">
       </a-sphere>
+
+      <a-sphere
+        position="-0.08 -0.10 0.02"
+        radius="0.018"
+        color="#a8e8ff"
+        opacity="0.42"
+        animation__rise="property: position; to: 0.00 0.24 0.02; dur: 2200; loop: true; easing: easeInOutSine"
+        animation__pulse="property: scale; dir: alternate; dur: 950; loop: true; to: 1.16 1.16 1.16">
+      </a-sphere>
+
+      <a-sphere
+        position="-0.24 -0.28 0.02"
+        radius="0.034"
+        color="#d4f6ff"
+        opacity="0.34"
+        animation__rise="property: position; to: -0.20 0.14 0.02; dur: 2700; loop: true; easing: easeInOutSine"
+        animation__pulse="property: scale; dir: alternate; dur: 1300; loop: true; to: 1.08 1.08 1.08">
+      </a-sphere>
+
     </a-entity>
   </a-scene>
 </body>
