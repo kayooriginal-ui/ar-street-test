@@ -15,6 +15,11 @@
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
 
   <style>
+  canvas {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+}
     html, body {
       margin: 0;
       padding: 0;
@@ -48,13 +53,13 @@
     Richt je camera op het artwork
   </div>
 
-  <a-scene
-    mindar-image="imageTargetSrc: under-construction-targets.mind; autoStart: true; uiScanning: yes; uiLoading: yes;"
-    color-space="sRGB"
-    renderer="colorManagement: true, physicallyCorrectLights"
-    vr-mode-ui="enabled: false"
-    device-orientation-permission-ui="enabled: false"
-  >
+ <a-scene embedded
+  mindar-image="imageTargetSrc: under-construction-targets.mind; autoStart: true; uiScanning: yes; uiLoading: yes;"
+  color-space="sRGB"
+  renderer="colorManagement: true, physicallyCorrectLights"
+  vr-mode-ui="enabled: false"
+  device-orientation-permission-ui="enabled: false"
+>
     <a-assets></a-assets>
 
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
