@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  />
+  <title>AR Street Art Test 01</title>
+
+  <!-- A-Frame -->
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+
+  <!-- MindAR for image tracking -->
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: #000;
+    }
+
+    .overlay-text {
+      position: fixed;
+      left: 50%;
+      bottom: 20px;
+      transform: translateX(-50%);
+      z-index: 10;
+      color: white;
+      background: rgba(0, 0, 0, 0.45);
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 14px;
+      text-align: center;
+      width: calc(100% - 40px);
+      max-width: 360px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay-text">
+    Richt je camera op het artwork
+  </div>
+
+  <a-scene
+    mindar-image="imageTargetSrc: under-construction-targets.mind; autoStart: true; uiScanning: yes; uiLoading: yes;"
+    color-space="sRGB"
+    renderer="colorManagement: true, physicallyCorrectLights"
+    vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: false"
+  >
+    <a-assets></a-assets>
+
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+    <!-- Target 0 -->
+    <a-entity mindar-image-target="targetIndex: 0">
+
+      <!-- Bubbelkolom: 5 simpele glow-bollen -->
+      <a-sphere
+        position="-0.2 0.1 0"
+        radius="0.05"
+        color="#7FDBFF"
+        opacity="0.65"
+        animation="property: position; to: -0.2 0.7 0; dir: alternate; dur: 2200; loop: true; easing: easeInOutSine">
+      </a-sphere>
+
+      <a-sphere
+        position="-0.05 0.0 0"
+        radius="0.035"
+        color="#AEEBFF"
+        opacity="0.7"
+        animation="property: position; to: -0.02 0.55 0; dir: alternate; dur: 1800; loop: true; easing: easeInOutSine">
+      </a-sphere>
+
+      <a-sphere
+        position="0.08 0.08 0"
+        radius="0.045"
+        color="#BFEFFF"
+        opacity="0.6"
+        animation="property: position; to: 0.12 0.78 0; dir: alternate; dur: 2500; loop: true; easing: easeInOutSine">
+      </a-sphere>
+
+      <a-sphere
+        position="0.18 -0.02 0"
+        radius="0.03"
+        color="#D9F7FF"
+        opacity="0.75"
+        animation="property: position; to: 0.15 0.48 0; dir: alternate; dur: 1600; loop: true; easing: easeInOutSine">
+      </a-sphere>
+
+      <a-sphere
+        position="0 0.18 0"
+        radius="0.025"
+        color="#E8FCFF"
+        opacity="0.55"
+        animation="property: position; to: 0.03 0.88 0; dir: alternate; dur: 2100; loop: true; easing: easeInOutSine">
+      </a-sphere>
+
+    </a-entity>
+  </a-scene>
+</body>
+</html>
