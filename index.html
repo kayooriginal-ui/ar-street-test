@@ -28,12 +28,12 @@
 
     a-scene {
       position: fixed !important;
-      inset: 0 !important;
+      top: 0 !important;
+      left: 0 !important;
       width: 100vw !important;
       height: 100vh !important;
     }
 
-    canvas,
     video {
       position: fixed !important;
       top: 0 !important;
@@ -41,6 +41,16 @@
       width: 100vw !important;
       height: 100vh !important;
       object-fit: cover !important;
+      z-index: 1 !important;
+    }
+
+    canvas {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      z-index: 2 !important;
     }
 
     .overlay-text {
@@ -48,9 +58,9 @@
       left: 50%;
       bottom: 20px;
       transform: translateX(-50%);
-      z-index: 20;
+      z-index: 30;
       color: white;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.55);
       padding: 12px 16px;
       border-radius: 12px;
       font-size: 18px;
@@ -67,90 +77,88 @@
   <a-scene
     embedded
     mindar-image="imageTargetSrc: trex.mind; autoStart: true; uiScanning: yes; uiLoading: yes; filterMinCF: 0.0001; warmupTolerance: 3; missTolerance: 12;"
+    renderer="alpha: true; antialias: true"
     color-space="sRGB"
-    renderer="colorManagement: true; physicallyCorrectLights: true; alpha: true"
     vr-mode-ui="enabled: false"
     device-orientation-permission-ui="enabled: false"
   >
-    <a-assets></a-assets>
-
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
     <a-entity mindar-image-target="targetIndex: 0">
 
-      <!-- glow in de bek -->
+      <!-- Rode glow in de bek -->
       <a-sphere
-        position="0.00 0.10 0.05"
+        position="0 0.10 0.05"
         radius="0.05"
-        color="#ff5a1f"
-        opacity="0.75"
-        animation__pulse="property: scale; to: 1.25 1.25 1.25; dir: alternate; dur: 800; loop: true"
+        color="#ff4a1a"
+        opacity="0.72"
+        animation__pulse="property: scale; to: 1.25 1.25 1.25; dir: alternate; dur: 850; loop: true"
       ></a-sphere>
 
-      <!-- mist / rook uit de bek -->
+      <!-- Witte / blauwe mist -->
       <a-sphere
         position="0.00 0.18 0.08"
-        radius="0.045"
+        radius="0.050"
         color="#ffffff"
-        opacity="0.42"
-        animation__rise="property: position; to: 0.00 0.45 0.18; dir: alternate; dur: 1800; loop: true; easing: easeInOutSine"
+        opacity="0.34"
+        animation__rise="property: position; to: 0.00 0.42 0.18; dir: alternate; dur: 1800; loop: true; easing: easeInOutSine"
       ></a-sphere>
 
       <a-sphere
-        position="0.08 0.22 0.08"
-        radius="0.030"
-        color="#d7f5ff"
-        opacity="0.45"
-        animation__rise="property: position; to: 0.16 0.48 0.16; dir: alternate; dur: 1600; loop: true; easing: easeInOutSine"
+        position="0.10 0.22 0.10"
+        radius="0.032"
+        color="#d8f6ff"
+        opacity="0.40"
+        animation__rise="property: position; to: 0.18 0.46 0.18; dir: alternate; dur: 1600; loop: true; easing: easeInOutSine"
       ></a-sphere>
 
       <a-sphere
-        position="-0.08 0.22 0.08"
-        radius="0.030"
-        color="#d7f5ff"
-        opacity="0.45"
-        animation__rise="property: position; to: -0.16 0.48 0.16; dir: alternate; dur: 1700; loop: true; easing: easeInOutSine"
+        position="-0.10 0.22 0.10"
+        radius="0.032"
+        color="#d8f6ff"
+        opacity="0.40"
+        animation__rise="property: position; to: -0.18 0.46 0.18; dir: alternate; dur: 1700; loop: true; easing: easeInOutSine"
       ></a-sphere>
 
-      <!-- duidelijke wow-particles -->
+      <!-- Blauwe particles -->
       <a-sphere
-        position="0.00 0.26 0.10"
+        position="0.00 0.26 0.12"
         radius="0.018"
         color="#00cfff"
         opacity="0.95"
-        animation__p1="property: position; to: 0.00 0.70 0.18; dir: alternate; dur: 2200; loop: true"
+        animation__p1="property: position; to: 0.00 0.68 0.22; dir: alternate; dur: 2200; loop: true"
       ></a-sphere>
 
       <a-sphere
-        position="0.12 0.28 0.10"
+        position="0.12 0.28 0.12"
         radius="0.015"
-        color="#57e4ff"
+        color="#59e0ff"
         opacity="0.92"
-        animation__p2="property: position; to: 0.28 0.72 0.20; dir: alternate; dur: 2000; loop: true"
+        animation__p2="property: position; to: 0.24 0.72 0.22; dir: alternate; dur: 2000; loop: true"
       ></a-sphere>
 
       <a-sphere
-        position="-0.12 0.28 0.10"
+        position="-0.12 0.28 0.12"
         radius="0.015"
-        color="#57e4ff"
+        color="#59e0ff"
         opacity="0.92"
-        animation__p3="property: position; to: -0.28 0.72 0.20; dir: alternate; dur: 2100; loop: true"
+        animation__p3="property: position; to: -0.24 0.72 0.22; dir: alternate; dur: 2100; loop: true"
       ></a-sphere>
 
       <a-sphere
-        position="0.05 0.36 0.12"
+        position="0.05 0.36 0.14"
         radius="0.012"
-        color="#8ef1ff"
+        color="#93f0ff"
         opacity="0.90"
-        animation__p4="property: position; to: 0.16 0.82 0.22; dir: alternate; dur: 1800; loop: true"
+        animation__p4="property: position; to: 0.14 0.82 0.25; dir: alternate; dur: 1800; loop: true"
       ></a-sphere>
 
       <a-sphere
-        position="-0.05 0.36 0.12"
+        position="-0.05 0.36 0.14"
         radius="0.012"
-        color="#8ef1ff"
+        color="#93f0ff"
         opacity="0.90"
-        animation__p5="property: position; to: -0.16 0.82 0.22; dir: alternate; dur: 1850; loop: true"
+        animation__p5="property: position; to: -0.14 0.82 0.25; dir: alternate; dur: 1850; loop: true"
       ></a-sphere>
 
     </a-entity>
