@@ -1,422 +1,82 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-  />
-  <title>AR Street Art Test 06 - Kijkpuntoptimalisatie</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>T-Rex AR</title>
 
-  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
 
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background: transparent;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      position: relative;
-    }
-
-    a-scene {
-      position: fixed !important;
-      inset: 0;
-      width: 100vw !important;
-      height: 100vh !important;
-    }
-
-    canvas, video {
-      position: fixed !important;
-      top: 0 !important;
-      left: 0 !important;
-      width: 100vw !important;
-      height: 100vh !important;
-      object-fit: cover !important;
-    }
-
-    .overlay-text {
-      position: fixed;
-      left: 50%;
-      bottom: 20px;
-      transform: translateX(-50%);
-      z-index: 20;
-      color: white;
-      background: rgba(0, 0, 0, 0.42);
-      padding: 10px 14px;
-      border-radius: 12px;
-      font-size: 14px;
-      text-align: center;
-      width: calc(100% - 40px);
-      max-width: 360px;
-      box-sizing: border-box;
-    }
-  </style>
+<style>
+body { margin:0; overflow:hidden; }
+.overlay {
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:rgba(0,0,0,0.5);
+  color:white;
+  padding:10px 15px;
+  border-radius:10px;
+}
+</style>
 </head>
+
 <body>
-  <div class="overlay-text">Richt je camera op het artwork</div>
 
-  <a-scene
-    embedded
-    mindar-image="imageTargetSrc: under-construction-targets.mind; autoStart: true; uiScanning: yes; uiLoading: yes;"
-    color-space="sRGB"
-    renderer="colorManagement: true, physicallyCorrectLights: true; alpha: true"
-    vr-mode-ui="enabled: false"
-    device-orientation-permission-ui="enabled: false"
-  >
-    <a-assets></a-assets>
+<div class="overlay">Richt op de T-Rex 🦖</div>
 
-    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+<a-scene
+  embedded
+  mindar-image="imageTargetSrc: trex.mind; autoStart: true;"
+  color-space="sRGB"
+  renderer="colorManagement: true; alpha:true"
+  vr-mode-ui="enabled:false"
+>
 
-    <a-entity mindar-image-target="targetIndex: 0">
+<a-camera position="0 0 0" look-controls="enabled:false"></a-camera>
 
-      <!-- ===================================================== -->
-      <!-- 1. WATERBASIS - VERDER NAAR ACHTEREN VOOR KIJKPUNT    -->
-      <!-- ===================================================== -->
+<a-entity mindar-image-target="targetIndex: 0">
 
-      <a-circle
-        position="0.00 -0.20 -0.02"
-        radius="0.16"
-        rotation="-90 0 0"
-        color="#009dff"
-        opacity="0.36"
-        animation__pulse="property: scale; to: 1.04 1.04 1.04; dir: alternate; dur: 1800; loop: true; easing: easeInOutSine">
-      </a-circle>
+  <!-- MIST UIT DE BEK -->
+  <a-sphere
+    position="0 0.2 0.1"
+    radius="0.05"
+    color="#ffffff"
+    opacity="0.4"
+    animation="property: position; to: 0 0.6 0.2; loop: true; dur: 2000"
+  ></a-sphere>
 
-      <a-ring
-        position="0.00 -0.20 -0.01"
-        rotation="-90 0 0"
-        radius-inner="0.06"
-        radius-outer="0.17"
-        color="#72ebff"
-        opacity="0.24"
-        animation__pulse="property: scale; to: 1.08 1.08 1.08; dir: alternate; dur: 1500; loop: true; easing: easeInOutSine">
-      </a-ring>
+  <a-sphere
+    position="0.1 0.2 0.1"
+    radius="0.03"
+    color="#d0f0ff"
+    opacity="0.5"
+    animation="property: position; to: 0.2 0.5 0.2; loop: true; dur: 1800"
+  ></a-sphere>
 
-      <a-circle
-        position="0.00 -0.20 0.00"
-        radius="0.09"
-        rotation="-90 0 0"
-        color="#c6fbff"
-        opacity="0.16"
-        animation__pulse="property: scale; to: 1.10 1.10 1.10; dir: alternate; dur: 1200; loop: true; easing: easeInOutSine">
-      </a-circle>
+  <!-- PARTICLES -->
+  <a-sphere position="-0.1 0.3 0.1" radius="0.02" color="#00ccff"
+    animation="property: position; to: -0.2 0.7 0.2; loop: true; dur: 2200">
+  </a-sphere>
 
-      <!-- Kleine sparkle-punten op het water -->
-      <a-sphere
-        position="-0.08 -0.18 0.01"
-        radius="0.008"
-        color="#9aefff"
-        opacity="0.84"
-        animation__blink="property: opacity; to: 0.14; dir: alternate; dur: 900; loop: true">
-      </a-sphere>
+  <a-sphere position="0.15 0.4 0.1" radius="0.015" color="#66e0ff"
+    animation="property: position; to: 0.3 0.8 0.2; loop: true; dur: 2000">
+  </a-sphere>
 
-      <a-sphere
-        position="0.10 -0.17 0.01"
-        radius="0.009"
-        color="#43d2ff"
-        opacity="0.76"
-        animation__blink="property: opacity; to: 0.10; dir: alternate; dur: 1100; loop: true">
-      </a-sphere>
+  <!-- GLOW IN MOND -->
+  <a-sphere
+    position="0 0.15 0.05"
+    radius="0.04"
+    color="#ff3300"
+    opacity="0.6"
+    animation="property: scale; to: 1.2 1.2 1.2; dir: alternate; loop:true; dur:800"
+  ></a-sphere>
 
-      <a-sphere
-        position="0.00 -0.15 0.02"
-        radius="0.006"
-        color="#ffffff"
-        opacity="0.90"
-        animation__blink="property: opacity; to: 0.16; dir: alternate; dur: 700; loop: true">
-      </a-sphere>
+</a-entity>
 
-      <!-- ===================================================== -->
-      <!-- 2. BUBBELKOLOM - VERDER NAAR ACHTEREN + HOGER         -->
-      <!-- ===================================================== -->
+</a-scene>
 
-      <!-- Onderste kern -->
-      <a-sphere
-        position="0.00 -0.08 0.02"
-        radius="0.020"
-        color="#1fb6ff"
-        opacity="0.92"
-        animation__rise="property: position; to: 0.00 0.42 0.02; dur: 2400; loop: true; easing: easeOutSine"
-        animation__pulse="property: scale; to: 1.12 1.12 1.12; dir: alternate; dur: 820; loop: true">
-      </a-sphere>
-
-      <a-sphere
-        position="-0.03 -0.03 0.03"
-        radius="0.014"
-        color="#58d8ff"
-        opacity="0.88"
-        animation__rise="property: position; to: -0.04 0.36 0.03; dur: 1900; loop: true; easing: easeOutSine"
-        animation__pulse="property: scale; to: 1.18 1.18 1.18; dir: alternate; dur: 760; loop: true">
-      </a-sphere>
-
-      <a-sphere
-        position="0.03 0.00 0.03"
-        radius="0.022"
-        color="#14a8ff"
-        opacity="0.84"
-        animation__rise="property: position; to: 0.05 0.50 0.03; dur: 2600; loop: true; easing: easeOutSine"
-        animation__pulse="property: scale; to: 1.10 1.10 1.10; dir: alternate; dur: 980; loop: true">
-      </a-sphere>
-
-      <a-sphere
-        position="-0.04 0.08 0.04"
-        radius="0.011"
-        color="#a2f2ff"
-        opacity="0.94"
-        animation__rise="property: position; to: -0.08 0.40 0.04; dur: 1700; loop: true; easing: easeOutSine"
-        animation__pulse="property: scale; to: 1.22 1.22 1.22; dir: alternate; dur: 680; loop: true">
-      </a-sphere>
-
-      <a-sphere
-        position="0.00 0.14 0.05"
-        radius="0.018"
-        color="#43d3ff"
-        opacity="0.88"
-        animation__rise="property: position; to: 0.00 0.56 0.05; dur: 2200; loop: true; easing: easeOutSine"
-        animation__pulse="property: scale; to: 1.16 1.16 1.16; dir: alternate; dur: 840; loop: true">
-      </a-sphere>
-
-      <a-sphere
-        position="-0.05 0.22 0.06"
-        radius="0.026"
-        color="#25b6ff"
-        opacity="0.82"
-        animation__rise="property: position; to: -0.09 0.76 0.06; dur: 3000; loop: true; easing: easeOutSine"
-        animation__pulse="property: scale; to: 1.12 1.12 1.12; dir: alternate; dur: 1080; loop: true">
-      </a-sphere>
-
-      <a-sphere
-        position="0.06 0.26 0.06"
-        radius="0.013"
-        color="#8dedff"
-        opacity="0.90"
-        animation__rise="property: position; to: 0.10 0.70 0.06; dur: 1800; loop: true; easing: easeOutSine"
-        animation__pulse="property: scale; to: 1.18 1.18 1.18; dir: alternate; dur: 700; loop: true">
-      </a-sphere>
-
-      <a-sphere
-        position="0.00 0.34 0.07"
-        radius="0.021"
-        color="#37c9ff"
-        opacity="0.84"
-        animation__rise="property: position; to: 0.00 0.88 0.07; dur: 2600; loop: true; easing: easeOutSine"
-        animation__pulse="property: scale; to: 1.14 1.14 1.14; dir: alternate; dur: 900; loop: true">
-      </a-sphere>
-
-      <!-- Middensectie -->
-      <a-sphere
-        position="-0.02 0.48 0.08"
-        radius="0.030"
-        color="#1eaeff"
-        opacity="0.80"
-        animation__rise="property: position; to: -0.04 1.02 0.08; dur: 3200; loop: true; easing: easeOutSine"
-        animation__pulse="property: scale; to: 1.10 1.10 1.10; dir: alternate; dur: 1180; loop: true">
-      </a-sphere>
-
-      <a-sphere
-        position="0.08 0.52 0.08"
-        radius="0.016"
-        color="#72e8ff"
-        opacity="0.86"
-        animation__rise="property: position; to: 0.14 1.00 0.08; dur: 2100; loop: true; easing: easeOutSine"
-        animation__pulse="property: scale; to: 1.18 1.18 1.18; dir: alternate; dur: 760; loop: true">
-      </a-sphere>
-
-      <a-sphere
-        position="-0.08 0.56 0.08"
-        radius="0.014"
-        color="#8cf0ff"
-        opacity="0.84"
-        animation__rise="property: position; to: -0.14 1.02 0.08; dur: 2000; loop: true; easing: easeOutSine"
-        animation__pulse="property: scale; to: 1.16 1.16 1.16; dir: alternate; dur: 720; loop: true">
-      </a-sphere>
-
-      <a-sphere
-        position="0.00 0.66 0.09"
-        radius="0.024"
-        color="#35c5ff"
-        opacity="0.82"
-        animation__rise="property: position; to: 0.00 1.10 0.09; dur: 2400; loop: true; easing: easeOutSine"
-        animation__pulse="property: scale; to: 1.15 1.15 1.15; dir: alternate; dur: 860; loop: true">
-      </a-sphere>
-
-      <!-- Kelk bovenin - meer lucht tussen bubbels -->
-      <a-sphere
-        position="-0.22 1.02 0.10"
-        radius="0.018"
-        color="#57dcff"
-        opacity="0.84"
-        animation__float="property: position; to: -0.30 1.22 0.10; dir: alternate; dur: 2200; loop: true; easing: easeInOutSine">
-      </a-sphere>
-
-      <a-sphere
-        position="-0.10 1.08 0.10"
-        radius="0.028"
-        color="#21b4ff"
-        opacity="0.82"
-        animation__float="property: position; to: -0.16 1.30 0.10; dir: alternate; dur: 2600; loop: true; easing: easeInOutSine">
-      </a-sphere>
-
-      <a-sphere
-        position="0.00 1.12 0.10"
-        radius="0.016"
-        color="#7ceeff"
-        opacity="0.88"
-        animation__float="property: position; to: 0.00 1.34 0.10; dir: alternate; dur: 1800; loop: true; easing: easeInOutSine">
-      </a-sphere>
-
-      <a-sphere
-        position="0.14 1.08 0.10"
-        radius="0.024"
-        color="#31c3ff"
-        opacity="0.82"
-        animation__float="property: position; to: 0.20 1.30 0.10; dir: alternate; dur: 2500; loop: true; easing: easeInOutSine">
-      </a-sphere>
-
-      <a-sphere
-        position="0.28 1.02 0.10"
-        radius="0.016"
-        color="#8cf0ff"
-        opacity="0.82"
-        animation__float="property: position; to: 0.36 1.22 0.10; dir: alternate; dur: 2100; loop: true; easing: easeInOutSine">
-      </a-sphere>
-
-      <a-sphere
-        position="-0.34 1.10 0.10"
-        radius="0.012"
-        color="#9ff2ff"
-        opacity="0.80"
-        animation__float="property: position; to: -0.42 1.30 0.10; dir: alternate; dur: 1900; loop: true; easing: easeInOutSine">
-      </a-sphere>
-
-      <a-sphere
-        position="0.40 1.12 0.10"
-        radius="0.012"
-        color="#99f0ff"
-        opacity="0.80"
-        animation__float="property: position; to: 0.48 1.30 0.10; dir: alternate; dur: 2000; loop: true; easing: easeInOutSine">
-      </a-sphere>
-
-      <!-- Kleine tussenbubbels voor luchtigheid -->
-      <a-sphere
-        position="-0.18 0.88 0.09"
-        radius="0.010"
-        color="#8cecff"
-        opacity="0.82"
-        animation__float="property: position; to: -0.24 1.08 0.09; dir: alternate; dur: 1700; loop: true; easing: easeInOutSine">
-      </a-sphere>
-
-      <a-sphere
-        position="0.18 0.90 0.09"
-        radius="0.010"
-        color="#8cecff"
-        opacity="0.82"
-        animation__float="property: position; to: 0.24 1.10 0.09; dir: alternate; dur: 1750; loop: true; easing: easeInOutSine">
-      </a-sphere>
-
-      <!-- ===================================================== -->
-      <!-- 3. VISJES - VERDER NAAR ACHTEREN / HOGER              -->
-      <!-- ===================================================== -->
-
-      <a-entity
-        position="-0.08 0.10 0.06"
-        animation__jump="property: position; to: -0.24 0.34 0.06; dir: alternate; dur: 2000; loop: true; easing: easeInOutSine"
-        animation__spin="property: rotation; to: 0 0 -22; dir: alternate; dur: 1000; loop: true; easing: easeInOutSine">
-        <a-ellipsoid
-          radius="0.026 0.012 0.010"
-          color="#ffbd4a"
-          opacity="0.96">
-        </a-ellipsoid>
-        <a-triangle
-          vertex-a="-0.026 0 0"
-          vertex-b="-0.048 0.017 0"
-          vertex-c="-0.048 -0.017 0"
-          color="#ff8d2f"
-          opacity="0.96">
-        </a-triangle>
-      </a-entity>
-
-      <a-entity
-        position="0.08 0.14 0.06"
-        animation__jump="property: position; to: 0.24 0.32 0.06; dir: alternate; dur: 2300; loop: true; easing: easeInOutSine"
-        animation__spin="property: rotation; to: 0 0 26; dir: alternate; dur: 1100; loop: true; easing: easeInOutSine">
-        <a-ellipsoid
-          radius="0.024 0.011 0.010"
-          color="#ffd469"
-          opacity="0.95">
-        </a-ellipsoid>
-        <a-triangle
-          vertex-a="-0.024 0 0"
-          vertex-b="-0.045 0.016 0"
-          vertex-c="-0.045 -0.016 0"
-          color="#ff9d22"
-          opacity="0.95">
-        </a-triangle>
-      </a-entity>
-
-      <a-entity
-        position="0.00 0.20 0.07"
-        animation__jump="property: position; to: 0.00 0.46 0.07; dir: alternate; dur: 2100; loop: true; easing: easeInOutSine"
-        animation__spin="property: rotation; to: 0 0 -16; dir: alternate; dur: 900; loop: true; easing: easeInOutSine">
-        <a-ellipsoid
-          radius="0.020 0.010 0.010"
-          color="#ffcf57"
-          opacity="0.94">
-        </a-ellipsoid>
-        <a-triangle
-          vertex-a="-0.020 0 0"
-          vertex-b="-0.038 0.014 0"
-          vertex-c="-0.038 -0.014 0"
-          color="#ff8d3f"
-          opacity="0.94">
-        </a-triangle>
-      </a-entity>
-
-      <!-- ===================================================== -->
-      <!-- 4. SPARKLES                                           -->
-      <!-- ===================================================== -->
-
-      <a-sphere
-        position="0.10 0.06 0.05"
-        radius="0.006"
-        color="#ffffff"
-        opacity="0.95"
-        animation__twinkle="property: opacity; to: 0.18; dir: alternate; dur: 550; loop: true">
-      </a-sphere>
-
-      <a-sphere
-        position="-0.12 0.34 0.05"
-        radius="0.005"
-        color="#9fefff"
-        opacity="0.80"
-        animation__twinkle="property: opacity; to: 0.10; dir: alternate; dur: 700; loop: true">
-      </a-sphere>
-
-      <a-sphere
-        position="0.14 0.62 0.05"
-        radius="0.007"
-        color="#6fdcff"
-        opacity="0.82"
-        animation__twinkle="property: opacity; to: 0.08; dir: alternate; dur: 620; loop: true">
-      </a-sphere>
-
-      <a-sphere
-        position="-0.10 0.96 0.05"
-        radius="0.006"
-        color="#c6f7ff"
-        opacity="0.78"
-        animation__twinkle="property: opacity; to: 0.12; dir: alternate; dur: 800; loop: true">
-      </a-sphere>
-
-    </a-entity>
-  </a-scene>
 </body>
 </html>
